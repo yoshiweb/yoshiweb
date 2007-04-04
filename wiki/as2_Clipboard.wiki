@@ -1,0 +1,35 @@
+#summary クリップボードにtrace()するクラス
+
+== 説明 ==
+
+クリップボードに文字列をコピーさせるクラスです。
+System.setClipboard() だと複数回か実行すると最後の結果しかクリップボードに残らないので前の  結果も残しつつコピーできるようにしました。
+
+
+=== 使い方 ===
+{{{
+import net.yoshiweb.utils.system.Clipboard;
+Clipboard.trace("貼り付ける内容");
+}}}
+
+====ObjectDumper.toString()を使って trace() と同じようにオブジェクトを展開して貼り付けることもできます。↓====
+{{{
+import mx.data.binding.ObjectDumper;
+import net.yoshiweb.utils.system.Clipboard;
+var obj = new Object();
+obj.a = "あああ";
+obj.b = "いいい";
+
+trace(obj); // [object Object]
+trace(ObjectDumper.toString(obj, true, true)); // {a: "あああ", b: "いいい"}
+
+Clipboard.trace(obj); // [object Object]
+Clipboard.trace(ObjectDumper.toString(obj, true, true)); // {a: "あああ", b: "いいい"}
+}}}
+
+====クリップボードを空にするときは↓====
+{{{
+import net.yoshiweb.utils.system.Clipboard;
+Clipboard.clear();
+}}}
+
