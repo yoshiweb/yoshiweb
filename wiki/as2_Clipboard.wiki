@@ -1,5 +1,5 @@
 #summary クリップボードに文字列をコピーさせるクラス
-* net.yoshiweb.utils.system.Clipboard クラス
+* net.yoshiweb.utils.system.Clipboard.as
 
 == 説明 ==
 
@@ -33,5 +33,4 @@ Clipboard.trace(ObjectDumper.toString(obj, true, true)); // {a: "あああ", b: 
 import net.yoshiweb.utils.system.Clipboard;
 Clipboard.clear();
 }}}
-
 
