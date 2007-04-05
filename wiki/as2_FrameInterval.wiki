@@ -1,0 +1,36 @@
+#summary setInterval のフレーム同期版
+* net.yoshiweb.utils.FrameInterval.as*
+  * ActionScript 2.0
+  * Flash Player 7 以上
+
+== 説明 ==
+
+クリップボードに文字列をコピーさせるクラスです。
+System.setClipboard() だと複数回実行すると最後の結果しかクリップボードに残らないので前の  結果も残しつつコピーできるようにしました。
+
+=== 使い方 ===
+{{{
+import net.yoshiweb.utils.FrameInterval;
+FrameInterval.setInterval(trace, 10, "10フレームごとに実行");
+}}}
+
+====setIntervalと同じように1番目の引数にオブジェクトを渡してメソッドを実行することもできます。↓====
+{{{
+import net.yoshiweb.utils.FrameInterval;
+var intervalID:Number = FrameInterval.setInterval(this, "test", 10);
+function test(){
+    trace("10フレームごとに実行");
+}
+}}}
+
+====setTimeoutもあります。↓====
+{{{
+import net.yoshiweb.utils.FrameInterval;
+FrameInterval.setTimeout(trace, 10, "10フレーム後に実行");
+}}}
+
+
+
+
+
+
