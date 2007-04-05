@@ -1,13 +1,12 @@
 #summary クリップボードに文字列をコピーさせるクラス
 * net.yoshiweb.utils.system.Clipboard.as*
+  * ActionScript 2.0
+  * Flash Player 7 以上
 
 == 説明 ==
 
 クリップボードに文字列をコピーさせるクラスです。
 System.setClipboard() だと複数回か実行すると最後の結果しかクリップボードに残らないので前の  結果も残しつつコピーできるようにしました。
-  * ActionScript 2.0
-  * Flash Player 7 以上
-
 
 === 使い方 ===
 {{{
