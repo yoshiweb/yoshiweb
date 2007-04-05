@@ -1,0 +1,19 @@
+#summary mx.transitions.Tweenクラス を拡張
+* net.yoshiweb.transitions.TweenEx.as*
+  * ActionScript 2.0
+  * Flash Player 7 以上
+
+== 説明 ==
+
+Elasticクラス や Backクラス に、引数を渡せるように mx.transitions.Tweenクラスを拡張
+
+
+=== 使い方 ===
+{{{
+import mx.transitions.Tween;
+import mx.transitions.easing.*;
+import net.yoshiweb.transitions.TweenEx;
+
+new Tween(mc1, "_x", Back.easeOut, 0, 300, 2, true);
+new TweenEx(mc2, "_x", Back.easeOut, 0, 300, 2, true, 5);
+}}}
