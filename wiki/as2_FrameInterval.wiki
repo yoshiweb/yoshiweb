@@ -5,8 +5,7 @@
 
 == 説明 ==
 
-クリップボードに文字列をコピーさせるクラスです。
-System.setClipboard() だと複数回実行すると最後の結果しかクリップボードに残らないので前の  結果も残しつつコピーできるようにしました。
+フレームと同期できる setInterval() を実装したクラスです。
 
 === 使い方 ===
 {{{
@@ -17,9 +16,30 @@ FrameInterval.setInterval(trace, 10, "10フレームごとに実行");
 ====setIntervalと同じように1番目の引数にオブジェクトを渡してメソッドを実行することもできます。↓====
 {{{
 import net.yoshiweb.utils.FrameInterval;
-var intervalID:Number = FrameInterval.setInterval(this, "test", 10);
+
+FrameInterval.setInterval(this, "test", 10);
 function test(){
     trace("10フレームごとに実行");
+}
+}}}
+
+====もちろん戻り値でインターバル IDを返しますので、その値を使って動作を止めることができます。↓====
+{{{
+import net.yoshiweb.utils.FrameInterval;
+
+var id:Number = FrameInterval.setInterval(this, "test", 10);
+function test(){
+    FrameInterval.clearInterval(id);
+}
+}}}
+
+====フレーム数を 1にすればonEnterFrameの代わりにも使えます。↓====
+{{{
+import net.yoshiweb.utils.FrameInterval;
+
+FrameInterval.setInterval(this,"test", 1);
+function test() {
+    mc._x += 10;
 }
 }}}
 
@@ -28,9 +48,4 @@ function test(){
 import net.yoshiweb.utils.FrameInterval;
 FrameInterval.setTimeout(trace, 10, "10フレーム後に実行");
 }}}
-
-
-
-
-
 
