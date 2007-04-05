@@ -6,7 +6,7 @@
 == 説明 ==
 
 クリップボードに文字列をコピーさせるクラスです。
-System.setClipboard() だと複数回か実行すると最後の結果しかクリップボードに残らないので前の  結果も残しつつコピーできるようにしました。
+System.setClipboard() だと複数回実行すると最後の結果しかクリップボードに残らないので前の  結果も残しつつコピーできるようにしました。
 
 === 使い方 ===
 {{{
@@ -34,7 +34,6 @@ Clipboard.trace(ObjectDumper.toString(obj, true, true)); // {a: "あああ", b: 
 import net.yoshiweb.utils.system.Clipboard;
 Clipboard.clear();
 }}}
-
 
 
 
