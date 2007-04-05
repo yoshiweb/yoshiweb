@@ -1,0 +1,21 @@
+#summary Flash Player のバージョン判別クラス
+* net.yoshiweb.utils.system.Player.as*
+  * ActionScript 2.0
+  * Flash Player 6 以上
+
+== 説明 ==
+
+Flash Playerのバージョンチェックに役立つかもしれない Player クラス。
+マイナーバージョンも判別してるので細かい判別がラクにできるかと...。
+
+=== 使い方 ===
+{{{
+import net.yoshiweb.utils.system.Player;
+
+if(Player.isVersion(9,0,28,0)){
+    trace("フルスクリーン対応");
+}else{
+    trace("フルスクリーン未対応");
+}
+}}}
+
