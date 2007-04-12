@@ -1,0 +1,70 @@
+#summary 右クリックメニューに項目を増やすクラス
+* net.yoshiweb.utils.menu.ContextMenuUtil.as*
+  * ActionScript 2.0
+  * Flash Player 7 以上
+
+== 説明 ==
+
+右クリックメニュー（コンテキストメニュー）に手軽(？)に項目を増やしたりできるクラスです
+。
+
+
+=== 使い方 ===
+引数に右クリックのターゲットとなるムービークリップを指定して、addItem()で表示する文字列とfunction を追加すれば指定したムービークリップの上で右クリックしたときのメニューに項目を増やすことができます。
+{{{
+import net.yoshiweb.utils.menu.ContextMenuUtil;
+var _cm = new ContextMenuUtil(mc);
+_cm.addItem("サンプル", test); 
+function test(){
+    trace("実行");
+}
+}}}
+
+==== オプション ====
+
+ボタン機能を無効にしたり、表示／非表示を切り替えたり、項目の上にラインを表示することができます。
+{{{
+import net.yoshiweb.utils.menu.ContextMenuUtil;
+//
+var _cm = new ContextMenuUtil(mc);
+_cm.addItem("あああ0", test);
+_cm.addItem("あああ1", test);
+_cm.addItem("あああ2", test);
+_cm.addItem("あああ3", test);
+_cm.addItem("あああ4", test);
+//
+_cm.setEnabled(2, false);//無効
+_cm.setVisible(1, false);//非表示
+_cm.setSeparatorBefore(3, true);//上にライン
+_cm.setCaption(4, "いいい4");//テキスト変更
+//
+function test(obj, item) {
+	trace(this);
+	trace(obj);
+}
+}}}
+
+項目を追加するときにオプションの指定もできます。
+{{{
+var _cm2 = new ContextMenuUtil(mc2);
+_cm2.setItem(_cm.getItem());
+_cm2.setBuiltInItems(_cm.getBuiltInItems());
+_cm2.addItem("ううう5", test, true);
+_cm2.addItem("ううう6", test, false, false);
+_cm2.addItem("ううう7", test, false, false, false);
+}}}
+
+ビルトインアイテムも設定できます。
+{{{
+_cm.hideBuiltInItems();
+_cm.setSave(false);
+_cm.setZoom(false);
+_cm.setQuality(false);
+_cm.setPlay(false);
+_cm.setLoop(false);
+_cm.setRewind(false);
+_cm.setForward_back(false);
+_cm.setPrint(false);
+//
+_cm2.setPrint(true);
+}}}
