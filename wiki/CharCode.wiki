@@ -1,0 +1,30 @@
+#summary 文字列が全角か？半角か？などを調べるクラス
+* [http://yoshiweb.googlecode.com/svn/as2/trunk/src/net/yoshiweb/utils/string/CharCode.as net.yoshiweb.utils.system.Clipboard.as]*
+  * ActionScript 2.0
+  * Flash Player 6 以上
+
+== 説明 ==
+
+文字列が全角か？半角か？などを調べるクラスです。
+文字列が全て半角数字か、アルファベットの大文字／小文字などをチェックしたい場合に使えるかもしれません。
+
+=== 使い方 ===
+{{{
+import net.yoshiweb.utils.string.CharCode;
+// 半角数字か？
+trace(CharCode.isDigit("123"));    // true
+trace(CharCode.isDigit("abc"));    // false
+}}}
+{{{
+import net.yoshiweb.utils.string.CharCode;
+// 半角アルファベット（大文字）か？
+trace(CharCode.isUpperCase("ABC"));    // true
+trace(CharCode.isUpperCase("abc"));    // false
+}}}
+{{{
+import net.yoshiweb.utils.string.CharCode;
+// 半角アルファベット（小文字）か？
+trace(CharCode.isLowerCase("ABC"));    // false
+trace(CharCode.isLowerCase("abc"));    // true
+trace(CharCode.isLowerCase("あいう")); // false
+}}}
