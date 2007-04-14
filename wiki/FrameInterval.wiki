@@ -1,7 +1,7 @@
 #summary setInterval のフレーム同期版
 * net.yoshiweb.utils.FrameInterval.as*
   * ActionScript 2.0
-  * Flash Player 7 以上
+  * Flash Player 6 以上(?)
 
 == 説明 ==
 
