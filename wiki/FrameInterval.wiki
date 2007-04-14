@@ -1,7 +1,7 @@
 #summary setInterval のフレーム同期版
-* net.yoshiweb.utils.FrameInterval.as*
+* [http://yoshiweb.googlecode.com/svn/as2/trunk/src/net/yoshiweb/utils/FrameInterval.as net.yoshiweb.utils.FrameInterval.as]*
   * ActionScript 2.0
-  * Flash Player 6 以上(?)
+  * Flash Player 6.0.79.0 以上
 
 == 説明 ==
 
@@ -48,3 +48,4 @@ function test() {
 import net.yoshiweb.utils.FrameInterval;
 FrameInterval.setTimeout(trace, 10, "10フレーム後に実行");
 }}}
+
