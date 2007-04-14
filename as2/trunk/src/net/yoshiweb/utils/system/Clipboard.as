@@ -4,6 +4,7 @@
 * @description	System.setClipboard();は実行するたびに前にコピーした文字列を上書きしてしまうので、前にコピーした文字列を残した状態で新たに文字列をコピーする。
 *
 * @author		yoshiweb
+* @since		Flash Player 7 (ActionScript 2.0)
 * @version		0.20070415
 *
 * @history
@@ -29,15 +30,6 @@ class net.yoshiweb.utils.system.Clipboard {
 		_str += str+"\r";
 		System.setClipboard(_str);
 	}
-	/*
-	* クリップボードを空にします
-	* @return	なし
-	* @usage	<code>net.yoshiweb.utils.system.Clipboard.clear();</code>
-	public static function clear(Void):Void {
-		_str = "";
-		System.setClipboard(_str);
-	}
-	*/
 	//
 	private function toString(Void):String {
 		return CLASS_NAME;

@@ -12,6 +12,7 @@
 *	</code>
 *
 * @author		yoshiweb
+* @since		Flash Player 6.0.79.0 (ActionScript 2.0)
 * @version		0.20070401
 * @history		
 *	20070401 - クラス名を変更。（CustumTween → TweenEx）

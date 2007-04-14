@@ -4,6 +4,7 @@
 * @description	プラグインのバージョンチェックをするクラス。
 *
 * @author		yoshiweb
+* @since	Flash Player 6 (ActionScript 2.0)
 * @version		0.20070415
 *
 * @history
@@ -33,7 +34,6 @@ class net.yoshiweb.utils.player.Version {
 	*	    trace("フルスクリーン未対応");
 	*	}
 	*	</code>
-	* @since	Flash Player 6 (ActionScript 2.0)
 	*/
 	public static function isOver():Boolean {
 		var tbl:Array = getVersion().split(" ")[1].split(",");
