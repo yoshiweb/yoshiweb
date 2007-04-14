@@ -1,5 +1,5 @@
 #summary クリップボードに文字列をコピーさせるクラス
-* net.yoshiweb.utils.system.Clipboard.as*
+* [http://yoshiweb.googlecode.com/svn/as2/trunk/src/net/yoshiweb/utils/system/Clipboard.as net.yoshiweb.utils.system.Clipboard.as]*
   * ActionScript 2.0
   * Flash Player 7 以上
 
@@ -28,5 +28,4 @@ trace(ObjectDumper.toString(obj, true, true)); // {a: "あああ", b: "いいい
 Clipboard.trace(obj); // [object Object]
 Clipboard.trace(ObjectDumper.toString(obj, true, true)); // {a: "あああ", b: "いいい"}
 }}}
-
 
