@@ -1,5 +1,5 @@
 #summary mx.transitions.Tweenクラス を拡張
-* net.yoshiweb.transitions.TweenEx.as*
+* [http://yoshiweb.googlecode.com/svn/as2/trunk/src/net/yoshiweb/transitions/TweenEx.as net.yoshiweb.transitions.TweenEx.as]*
   * ActionScript 2.0
   * Flash Player 7 以上
 
