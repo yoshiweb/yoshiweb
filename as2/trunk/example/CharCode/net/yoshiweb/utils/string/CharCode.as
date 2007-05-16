@@ -1,4 +1,5 @@
-﻿/**
+﻿// Copyright (c) 2007 yoshiweb.NET
+/**
 * CharCodeクラス
 *
 * @description	文字列を扱うためのメソッドを持つクラスです。
