@@ -44,20 +44,20 @@ package net.yoshiweb.events {
 	 * 	Trace.fatal("fatal", 123);	// fatal,123
 	 * 	</code>
 	 * @author		Takano Yoshihiro
-	 * @version		0.20080330
+	 * @version		0.20081127
 	 * @history		
 	 */
 	public class Trace
 	{
-		public static const ALL:Number =		0;
-		public static const DEBUG:Number =		2;
-		public static const INFO:Number =		4;
-		public static const WARNING:Number =	6;
-		public static const ERROR:Number =		8;
-		public static const FATAL:Number =		1000;
+		public static const ALL:Number     = 0;
+		public static const DEBUG:Number   = 2;
+		public static const INFO:Number    = 4;
+		public static const WARNING:Number = 6;
+		public static const ERROR:Number   = 8;
+		public static const FATAL:Number   = 1000;
 		//
-		private static var _level:Number =		Trace.ALL;
-		private static var _isMoviePreview =	PlayerCheck.isMoviePreview();
+		private static var _level:Number           = Trace.ALL;
+		private static var _isMoviePreview:Boolean = PlayerCheck.isMoviePreview();
 		private static var _canBrowser:Boolean = false;
 		//
 		//コンストラクタ
