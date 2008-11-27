@@ -1,33 +1,34 @@
 ﻿/*
-* Copyright(c) 2007-2008 yoshiweb.NET
-* 
-* Permission is hereby granted, free of charge, to any person obtaining a copy
-* of this software and associated documentation files (the "Software"), to deal
-* in the Software without restriction, including without limitation the rights
-* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-* copies of the Software, and to permit persons to whom the Software is
-* furnished to do so, subject to the following conditions:
-* 
-* The above copyright notice and this permission notice shall be included in
-* all copies or substantial portions of the Software.
-* 
-* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-* THE SOFTWARE.
-* 
-* The MIT License
-* http://www.opensource.org/licenses/mit-license.php
-*/
+ * Licensed under the MIT License
+ *
+ * Copyright(c) yoshiweb.NET
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ * 
+ * The MIT License
+ * http://www.opensource.org/licenses/mit-license.php
+ */
 
 package net.yoshiweb.events {
 	import net.yoshiweb.utils.system.PlayerCheck;
 	/**
-	 * 
-	 * Trace
+	 * Trace クラス
 	 * 
 	 * @description	
 	 * @usage		
@@ -36,7 +37,7 @@ package net.yoshiweb.events {
 	 * 	// ERROR 以上のみ出力に設定
 	 * 	Trace.level = Trace.ERROR;
 	 *  Trace.canBrowser = false;
-	 * 	//
+	 * 
 	 * 	Trace.debug("debug");
 	 * 	Trace.info("info");
 	 * 	Trace.warning("warning");
@@ -45,7 +46,6 @@ package net.yoshiweb.events {
 	 * 	</code>
 	 * @author		Takano Yoshihiro
 	 * @version		0.20081127
-	 * @history		
 	 */
 	public class Trace
 	{
@@ -55,11 +55,11 @@ package net.yoshiweb.events {
 		public static const WARNING:Number = 6;
 		public static const ERROR:Number   = 8;
 		public static const FATAL:Number   = 1000;
-		//
+
 		private static var _level:Number           = Trace.ALL;
 		private static var _isMoviePreview:Boolean = PlayerCheck.isMoviePreview();
-		private static var _canBrowser:Boolean = false;
-		//
+		private static var _canBrowser:Boolean     = false;
+
 		//コンストラクタ
 		public function Trace()
 		{
