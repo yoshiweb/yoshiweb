@@ -1,0 +1,53 @@
+package {
+	import flash.display.Sprite;
+	import flash.events.Event;
+	import flash.events.MouseEvent;
+	
+	import net.yoshiweb.motion.Transitions;
+	/**
+	 * Mosakoクラス
+	 * @author Takano Yoshihiro
+	 * 
+	 */
+	public class Mosako extends Sprite
+	{
+		/////////////////////////////////////////////////////////////
+		private var _trans:Transitions;
+		/////////////////////////////////////////////////////////////
+		// コンストラクタ
+		public function Mosako()
+		{
+			_init();
+		}
+		private function _init():void {
+
+			_trans = new Transitions(this);
+		
+			this.addEventListener(MouseEvent.CLICK, _clickHandler);
+			this.addEventListener(Event.ENTER_FRAME, _enterFrameHandler);
+
+		}
+		/////////////////////////////////////////////////////////////
+		// Event
+		/////////////////////////////////////////////////////////////
+		// 基準点を設定
+		private function _clickHandler(e:Event):void {
+			_trans.setTransPoint(mouseX, mouseY);
+		}
+		// 回転
+		private function _enterFrameHandler(e:Event):void {
+			_trans.rotate += 3;
+		}
+		/////////////////////////////////////////////////////////////
+		// public
+		/////////////////////////////////////////////////////////////
+		
+		/////////////////////////////////////////////////////////////
+		// private
+		/////////////////////////////////////////////////////////////
+		
+		
+		
+		/////////////////////////////////////////////////////////////
+	}
+}
