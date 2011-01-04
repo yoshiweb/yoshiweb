@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<head>
+<meta charset="utf-8">
+<title>FlashからTwitterのデータを取得【JSONP】</title>
+<link rel="stylesheet" type="text/css" href="css/reset.css" media="screen">
+<link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">
+	google.load("jquery", "1.4.4");
+	google.load("swfobject", "2.2");
+</script>
+
+<script type="text/javascript">
+
+// Twitter パブリックタイムラインのデータを取得
+function getTwitterPublicTimeline(){
+	$.ajax({
+		url: "http://api.twitter.com/1/statuses/public_timeline.json",  // リクエストURL
+		data: {},                                 // 送信データ
+		dataType: "jsonp",                        // jsonp
+		cache: true,                              // キャッシュする
+		success: function(result) {               // 通信成功時にデータを表示
+			// データをFlashに渡す
+			sendToActionScript(result);
+		},
+		error: function(result) {
+			// Flashへエラー通知
+			sendToError(result.error);
+		}
+	});
+}
+
+
+// JavaScriptからFlashへデータを渡す関数
+function sendToActionScript(value) {
+	thisMovie("myDynamicContent").sendToActionScript(value);
+}
+// JavaScriptからFlashへエラー通知
+function sendToError(value) {
+	thisMovie("myDynamicContent").sendToError(value);
+}
+
+// Flashから実行される関数
+function sendToJavaScript(value) {
+	// Twitter パブリックタイムラインのデータを取得
+	getTwitterPublicTimeline();
+}
+
+// Flashを取得
+function thisMovie(movieName) {
+	if (navigator.appName.indexOf("Microsoft") != -1) {
+		return window[movieName];
+	} else {
+		return document[movieName];
+	}
+}
+</script>
+
+<script type="text/javascript">
+var flashvars = null;
+var params = null;
+var attributes = {
+	id: "myDynamicContent",
+	name: "myDynamicContent"
+};
+swfobject.embedSWF("swf/twitter.swf", "myContent", "300", "400", "9.0.45", "swf/expressInstall.swf", flashvars, params, attributes);
+</script>
+
+</head>
+<body>
+<!-- Start: Center Wrap -->
+<div id="wrapper">
+
+<!-- Start: myContent -->
+<div id="myContent"></div><!-- End: myContent -->
+
+</div><!-- End: Center Wrap -->
+</body>
+</html>

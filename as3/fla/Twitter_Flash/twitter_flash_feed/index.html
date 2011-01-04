@@ -1,13 +1,13 @@
 <!DOCTYPE HTML>
 <head>
 <meta charset="utf-8">
-<title>FlashからTwitterのデータを取得 [ JSONP ] </title>
+<title>FlashからTwitterのデータを取得【feed】</title>
 <link rel="stylesheet" type="text/css" href="css/reset.css" media="screen">
 <link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
 
-<script src="https://www.google.com/jsapi?key=ABQIAAAAyX_Ft23fKw94lFAR-dnPaRRavNt4S_VM4xcNF1tMhlqPf2JjGRRr_tYYGIZzCxX3x543gRMdUR5BZw" type="text/javascript"></script>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script type="text/javascript">
-	google.load("jquery", "1.4.4");
+	google.load("feeds", "1");
 	google.load("swfobject", "2.2");
 </script>
 
@@ -15,16 +15,32 @@
 
 // Twitter パブリックタイムラインのデータを取得
 function getTwitterPublicTimeline(){
-	var url = "http://api.twitter.com/1/statuses/public_timeline.json?callback=?";
-	$.getJSON(url, function(obj) {
-		// データをFlashに渡す
-		sendToActionScript(obj);
-	});
+	var url = "http://api.twitter.com/1/statuses/public_timeline.rss";
+	var feed = new google.feeds.Feed( url );
+	feed.includeHistoricalEntries();
+	feed.setNumEntries(20);
+	feed.load(feedLoaded);
 }
+
+// 読み込み完了
+function feedLoaded(result) {
+	if (!result.error) {
+		// データをFlashに渡す
+		sendToActionScript(result.feed.entries);
+	} else {
+		// エラーメッセージをFlashへ送る
+		sendToError(result.error);
+	}
+}
+
 
 // JavaScriptからFlashへデータを渡す関数
 function sendToActionScript(value) {
 	thisMovie("myDynamicContent").sendToActionScript(value);
+}
+// JavaScriptからFlashへエラー通知
+function sendToError(value) {
+	thisMovie("myDynamicContent").sendToError(value);
 }
 
 // Flashから実行される関数
