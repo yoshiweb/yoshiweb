@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<title>test</title>
+<script type="text/javascript" src="swfobject.js"></script>
+
+<script type="text/javascript">
+var flashvars = {};
+var params = {};
+var attributes = {};
+swfobject.embedSWF("test.swf", "flashContent","250", "150", "9.0.115", "", flashvars, params, attributes);
+</script>
+
+<script type="text/javascript">
+
+// Flashから実行される関数
+function testJS(str){
+	alert( str );
+}
+
+</script>
+
+
+</head>
+<body>
+
+<div id="flashContent"></div>
+
+</body>
+</html>
