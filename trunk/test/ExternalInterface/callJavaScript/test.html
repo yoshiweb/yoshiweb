@@ -3,13 +3,17 @@
 <head>
 <meta charset="utf-8" />
 <title>test</title>
-<script type="text/javascript" src="swfobject.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/swfobject/2.2/swfobject.js"></script>
 
 <script type="text/javascript">
 var flashvars = {};
-var params = {};
-var attributes = {};
-swfobject.embedSWF("test.swf", "flashContent","250", "150", "9.0.115", "", flashvars, params, attributes);
+var params = {
+	allowscriptaccess:"always"
+};
+var attributes = {
+	id:"externalFlash"
+};
+swfobject.embedSWF("test.swf", "flashContent", "250", "150", "9.0.115", "", flashvars, params, attributes);
 </script>
 
 <script type="text/javascript">
