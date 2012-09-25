@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>EaselJS Example: Click Example</title>
+<script src="http://code.createjs.com/easeljs-0.5.0.min.js"></script>
+
+<script>
+function init() {
+	var canvas = document.getElementById("testCanvas");
+	var stage = new createjs.Stage(canvas);
+
+	var container1 = new createjs.Container();
+	var target1 = new createjs.Shape();
+	var txt1 = new createjs.Text("Click Me!", "36px Arial", "#FFF");
+	container1.x = 100;
+	container1.y = 80;
+	target1.graphics.beginFill("#00F").drawRect(-10,-10,200,60).beginFill("#FFF");
+	txt1.textBaseline = "top";
+
+
+	var container2 = new createjs.Container();
+	var target2 = new createjs.Shape();
+	var txt2 = new createjs.Text("Click Me!", "36px Arial", "#FFF");
+	container2.x = 150;
+	container2.y = 120;
+	target2.graphics.beginFill("#F00").drawRect(-10,-10,200,60).beginFill("#FFF");
+	txt2.textBaseline = "top";
+
+	container1.addChild(target1);
+	container1.addChild(txt1);
+	container2.addChild(target2);
+	container2.addChild(txt2);
+	stage.addChild(container1);
+	stage.addChild(container2);
+
+	container1.onClick = function(evt) { alert("Click"); }
+	container2.onDoubleClick = function(evt) { alert("DoubleClick"); }
+
+	stage.update();
+}
+
+</script>
+<style type="text/css">
+	body {
+		background-color: #CCC;
+	}
+	canvas {
+		background-color: #FFF;
+	}
+</style>
+
+</head>
+	
+<body onload="init();">
+
+		<canvas id="testCanvas" width="550" height="400"></canvas>
+
+</body>
+</html>
