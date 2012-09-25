@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>EaselJS</title>
+<script src="http://code.createjs.com/easeljs-0.5.0.min.js"></script>
+
+<script>
+function init() {
+	var canvas = document.getElementById("testCanvas");
+	var stage = new createjs.Stage(canvas);
+
+	var container1 = new createjs.Container();
+	container1.x = 100;
+	container1.y = 80;
+
+	var txt1 = new createjs.Text("EaselJS", "36px Arial", "#F00");
+	txt1.textBaseline = "top";
+
+	container1.addChild(txt1);
+	stage.addChild(container1);
+
+	stage.update();
+}
+
+</script>
+<style type="text/css">
+	body {
+		background-color: #CCC;
+	}
+	canvas {
+		background-color: #FFF;
+	}
+</style>
+
+</head>
+	
+<body onload="init();">
+
+		<canvas id="testCanvas" width="550" height="400"></canvas>
+
+</body>
+</html>
