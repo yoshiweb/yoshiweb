@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>EaselJS</title>
+<script src="http://code.createjs.com/easeljs-0.5.0.min.js"></script>
+
+
+<script>
+	var img;		// bmp of the sprite sheet
+
+	function init() {
+		//wait for the image to load
+		img = new Image();
+		img.onload = handleImageLoad;
+		img.src = "assets/image0.jpg";
+	}
+
+function handleImageLoad() {
+
+	var canvas = document.getElementById("testCanvas");
+	var stage = new createjs.Stage(canvas);
+
+	bmp = new createjs.Bitmap(img);
+	stage.addChild(bmp);
+
+	stage.update();
+}
+
+</script>
+<style type="text/css">
+	body {
+		background-color: #CCC;
+	}
+	canvas {
+		background-color: #FFF;
+	}
+</style>
+
+</head>
+	
+<body onload="init();">
+
+		<canvas id="testCanvas" width="550" height="400"></canvas>
+
+</body>
+</html>
