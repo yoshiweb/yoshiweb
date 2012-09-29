@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>EaselJS</title>
+<script src="http://code.createjs.com/easeljs-0.5.0.min.js"></script>
+<script src="http://code.createjs.com/preloadjs-0.2.0.min.js"></script>
+
+
+<script>
+
+var canvas;
+var context;
+var stage;
+
+
+function _init(){
+        canvas = document.getElementById("testCanvas");
+        // canvas.width = window.innerWidth;
+        // canvas.height = window.innerHeight;
+        context = canvas.getContext("2d");
+
+        stage = new createjs.Stage(canvas);
+
+        preload = new createjs.PreloadJS();
+        preload.onComplete = _loadedImages;
+        var manifest = [
+            { id: "image0", src: "assets/image0.jpg" },
+            { id: "image1", src: "assets/image1.jpg" }
+        ];
+        preload.loadManifest(manifest);
+
+}
+function _loadedImages(e){
+
+	var logoScreenImage = preload.getResult("image0").result;
+	logoScreenBitmap = new createjs.Bitmap(logoScreenImage);
+	stage.addChild(logoScreenBitmap);
+
+	console.log("_loadedImages", e);
+	stage.update();
+
+	//startGame();
+}
+// function startGame() {
+// 	createjs.Ticker.setInterval(window.requestAnimationFrame);
+// 	createjs.Ticker.addListener(update);
+// }
+// function update(e) {
+// 	console.log(e, new Date());
+
+// 	stage.update();
+// }
+
+</script>
+<style type="text/css">
+	body {
+		background-color: #CCC;
+	}
+	canvas {
+		background-color: #FFF;
+	}
+</style>
+
+</head>
+	
+<body onload="_init();">
+
+		<canvas id="testCanvas" width="550" height="400"></canvas>
+
+</body>
+</html>
