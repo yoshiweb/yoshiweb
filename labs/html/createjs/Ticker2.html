@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>EaselJS</title>
+<script src="http://code.createjs.com/easeljs-0.5.0.min.js"></script>
+
+<script>
+
+var stage;
+
+var txt;
+var count = 0;
+
+function init() {
+	var canvas = document.getElementById("testCanvas");
+	stage = new createjs.Stage(canvas);
+
+	var container = new createjs.Container();
+	container.x = 100;
+	container.y = 80;
+
+	// Create a new Text object, and position it on stage:
+	txt = new createjs.Text("0!", "36px Arial", "#FFF");
+	txt.x = 10;
+	txt.y = 10;
+
+	// this shape will be the background for the text:
+	shape = new createjs.Shape();
+	shape.graphics.clear().beginFill("#F00").drawRect(0, 0, 200, 60);
+
+	container.addChild(txt);
+	container.addChildAt(shape,0);
+	stage.addChild(container);
+
+	createjs.Ticker.setFPS(10);
+//	createjs.Ticker.setInterval(window.requestAnimationFrame);
+ 	createjs.Ticker.addListener(update);
+ 	update(0);
+}
+function update(elapsedTime) {
+		count++;
+		console.log(count, elapsedTime);
+		// update the text:
+		txt.text = count;
+
+		// update the stage:
+		stage.update();
+}
+</script>
+<style type="text/css">
+	body {
+		background-color: #CCC;
+	}
+	canvas {
+		background-color: #FFF;
+	}
+</style>
+
+</head>
+	
+<body onload="init();">
+
+		<canvas id="testCanvas" width="550" height="400"></canvas>
+
+</body>
+</html>
