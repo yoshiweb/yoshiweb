@@ -22,7 +22,7 @@ function _init(){
 
         stage = new createjs.Stage(canvas);
 
-        preload = new createjs.PreloadJS();
+        preload = new createjs.PreloadJS(false);
         preload.onComplete = _onComplete;
         preload.onError = function(e){console.log("onError", e);}
         preload.onFileLoad = function(e){console.log("onFileLoad", e);}
