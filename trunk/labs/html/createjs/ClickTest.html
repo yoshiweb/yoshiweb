@@ -10,35 +10,54 @@ function init() {
 	var canvas = document.getElementById("testCanvas");
 	var stage = new createjs.Stage(canvas);
 
-	var container1 = new createjs.Container();
-	var target1 = new createjs.Shape();
-	var txt1 = new createjs.Text("Click Me!", "36px Arial", "#FFF");
-	container1.x = 100;
-	container1.y = 80;
-	target1.graphics.beginFill("#00F").drawRect(-10,-10,200,60).beginFill("#FFF");
-	txt1.textBaseline = "top";
+	var container = new createjs.Container();
+	var target = new createjs.Shape();
+	var txt = new createjs.Text("Click Me!", "36px Arial", "#FFF");
+	container.x = 100;
+	container.y = 80;
+	target.graphics.beginFill("#00F").drawRect(-10,-10,200,60).beginFill("#FFF");
+	txt.textBaseline = "top";
 
 
-	var container2 = new createjs.Container();
-	var target2 = new createjs.Shape();
-	var txt2 = new createjs.Text("Click Me!", "36px Arial", "#FFF");
-	container2.x = 150;
-	container2.y = 120;
-	target2.graphics.beginFill("#F00").drawRect(-10,-10,200,60).beginFill("#FFF");
-	txt2.textBaseline = "top";
+	container.addChild(target);
+	container.addChild(txt);
+	stage.addChild(container);
 
-	container1.addChild(target1);
-	container1.addChild(txt1);
-	container2.addChild(target2);
-	container2.addChild(txt2);
-	stage.addChild(container1);
-	stage.addChild(container2);
+	// container.onPress = function(evt) { console.log("onPress"); }
+	container.onPress = _onPress;
+	container.onClick = function(evt) { console.log("onClick"); }
+	container.onDoubleClick = function(evt) { console.log("onDoubleClick"); }
 
-	container1.onClick = function(evt) { alert("Click"); }
-	container2.onDoubleClick = function(evt) { alert("DoubleClick"); }
+	stage.enableMouseOver(10);
 
+	container.onMouseDown = function(evt) { console.log("onMouseDown"); }
+	container.onMouseUP = function(evt) { console.log("onMouseUP"); }
+
+	container.onMouseOver = function(evt) { console.log("onMouseOver"); }
+	container.onMouseOut = function(evt) { console.log("onMouseOut"); }
+	container.onMouseMove = function(evt) { console.log("onMouseMove"); }
+
+	// 画面更新
 	stage.update();
 }
+
+function _onPress (evt) {
+	console.log("_onPress");
+
+	evt.onMouseMove = function (ev) {
+		console.log(["onMouseMove", ev]);
+	}
+	evt.onMouseUP = function (ev) {
+		console.log(["onMouseUP", ev]);
+	}
+	evt.onMouseDown = function (ev) {
+		console.log(["onMouseDown", ev]);
+	}
+}
+
+
+
+
 
 </script>
 <style type="text/css">
