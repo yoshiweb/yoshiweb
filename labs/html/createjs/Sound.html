@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>EaselJS</title>
+<script src="http://code.createjs.com/easeljs-0.5.0.min.js"></script>
+<script src="http://code.createjs.com/preloadjs-0.2.0.min.js"></script>
+<script src="http://code.createjs.com/soundjs-0.3.0.min.js"></script>
+
+
+<script>
+
+var canvas;
+var context;
+var stage;
+
+
+function _init(){
+        canvas = document.getElementById("testCanvas");
+        // canvas.width = window.innerWidth;
+        // canvas.height = window.innerHeight;
+        context = canvas.getContext("2d");
+
+        stage = new createjs.Stage(canvas);
+
+        preload = new createjs.PreloadJS(false);
+        preload.onComplete = _onComplete;
+        preload.onError = function(e){console.log("onError", e);}
+        preload.onFileLoad = function(e){console.log("onFileLoad", e);}
+        preload.onFileProgress = function(e){console.log("onFileProgress", e);}
+        preload.onLoadStart = function(e){console.log("onLoadStart", e);}
+        preload.onProgress = function(e){console.log("onProgress", e.loaded);}
+		preload.installPlugin(createjs.SoundJS);
+
+        var manifest = [
+            { id: "image", src: "assets/image0.jpg" },
+            { id: "se", src: "assets/se.mp3" }
+        ];
+        preload.loadManifest(manifest);
+
+}
+function _onComplete(e){
+	console.log("onComplete", e);
+
+	var bmp = new createjs.Bitmap(preload.getResult("image").result);
+	stage.addChild(bmp);
+
+	// var se = new createjs.SoundJS(preload.getResult("se").result);
+    // se.controls = true; // コントロールUIを表示
+    // se.autoplay = true; // 自動再生
+    // document.body.appendChild(se); // bodyにaudioタグを追加
+	// var instance = createjs.SoundJS.play(target.id, createjs.SoundJS.INTERRUPT_NONE, 0, 0, false, 1);
+	//	var instance = createjs.SoundJS.play(preload.getResult("se").result, createjs.SoundJS.INTERRUPT_NONE, 0, 0, false, 1);
+
+	var instance = createjs.SoundJS.play("se");
+
+
+	stage.update();
+}
+
+
+</script>
+<style type="text/css">
+	body {
+		background-color: #CCC;
+	}
+	canvas {
+		background-color: #FFF;
+	}
+</style>
+
+</head>
+	
+<body onload="_init();">
+
+		<canvas id="testCanvas" width="550" height="400"></canvas>
+
+</body>
+</html>
